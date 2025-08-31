@@ -39,6 +39,7 @@ jobs:
       - name: $GITHUB_ENV
         run: |
           ls -la $GITHUB_ENV
+          echo "PATH="$HOME/.cargo/bin:$PATH"" >> $GITHUB_ENV
           cat $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
