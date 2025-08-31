@@ -26,9 +26,12 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: env
-        run: |
+      - name: display env
+        run:
           env
+
+      - name: find .env
+        run: |
           find ~/ -type f -iname '.env'
 
       # Runs a set of commands using the runners shell
