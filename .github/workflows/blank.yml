@@ -32,7 +32,6 @@ jobs:
       - name: display env
         run:
           env
-        run: 
 
       - name: find .env
         run: |
