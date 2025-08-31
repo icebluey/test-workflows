@@ -28,14 +28,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      # default dir
+      - run: /bin/ls -la ./; pwd
+
       # Runs a single command using the runners shell
       - name: display env
         run:
           env
 
-      - name: find .env
+      - name: $GITHUB_ENV
         run: |
-          find ~/ -type f -iname '.env'
+          ls -la $GITHUB_ENV
+          cat $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
