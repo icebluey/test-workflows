@@ -42,12 +42,12 @@ jobs:
           echo "PATH="$HOME/.cargo/bin:$PATH"" >> $GITHUB_ENV
           cat $GITHUB_ENV
 
-      - name: dir 
-        run: mkdir -p 1/2/3/4/5
 
-      - run: cd 1/2 ; ls -la
+      - run: mkdir -p 1/2/3/4/5
 
-      - run: pwd
+      - run: cd 1/2/3/4/5 ; pwd
+
+      - run: pwd ; ls -la
 
 
 
