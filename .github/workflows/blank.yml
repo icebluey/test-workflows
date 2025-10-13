@@ -62,6 +62,7 @@ jobs:
           sudo systemctl status -l chrony
           sudo systemctl stop chrony
           sudo systemctl status -l chrony
+          echo 0
           sudo sed 's|^refclock.*|#&|g' -i /etc/chrony/chrony.conf
           echo 1
           sudo sed '1i \server time.cloudflare.com iburst minpoll 4 maxpoll 5 nts' -i /etc/chrony/chrony.conf
