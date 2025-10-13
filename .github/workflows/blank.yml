@@ -60,6 +60,15 @@ jobs:
           cat /etc/chrony/chrony.conf
           echo
           sudo systemctl status -l chrony
+          sudo systemctl stop chrony
+          sudo systemctl status -l chrony
+          sudo sed -e 's|^refclock.*|#&|g' -i /etc/chrony/chrony.conf
+          sudo sed -e '1i \server time.cloudflare.com iburst minpoll 4 maxpoll 5 nts' -i /etc/chrony/chrony.conf
+          sudo sed -e '2i \server time.google.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
+          sudo sed -e '3i \server time.apple.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
+          sudo systemctl start chrony
+          sleep 10 ; sudo systemctl status -l chrony
+
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
