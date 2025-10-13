@@ -67,7 +67,7 @@ jobs:
           sudo sed '3i \server time.apple.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
           cat /etc/chrony/chrony.conf
           sudo systemctl start chrony
-          sleep 5; sudo chronyc sources; sudo chronyc makestep
+          sleep 10; sudo chronyc sources; sleep 2; chronyc tracking; sudo chronyc makestep
           sudo systemctl status -l chrony
           
 
