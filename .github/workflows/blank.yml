@@ -63,8 +63,11 @@ jobs:
           sudo systemctl stop chrony
           sudo systemctl status -l chrony
           sudo sed 's|^refclock.*|#&|g' -i /etc/chrony/chrony.conf
+          echo 1
           sudo sed '1i \server time.cloudflare.com iburst minpoll 4 maxpoll 5 nts' -i /etc/chrony/chrony.conf
+          echo 2
           sudo sed '2i \server time.google.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
+          echo 3
           sudo sed '3i \server time.apple.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
           cat /etc/chrony/chrony.conf
           sudo systemctl start chrony
