@@ -61,7 +61,7 @@ jobs:
           echo
           sudo systemctl status -l chrony
           sudo systemctl stop chrony
-          sudo systemctl status -l chrony
+          sudo systemctl status -l chrony || true
           echo 0
           sudo sed 's|^refclock.*|#&|g' -i /etc/chrony/chrony.conf
           echo 1
