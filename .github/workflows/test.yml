@@ -81,7 +81,8 @@ jobs:
         run: sudo apt autoremove --purge -y '^docker.*' '^container.*' crun runc '^podman.*' firefox google-chrome-stable '^libmono-.*' '^mono-.*' '^mysql-.*' '^postgresql-.*' '^php.*'
       
       - run: sudo df -h
-      - run: sudo du -h --max-depth=1 / | sort -h
+      - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
+      - run: sudo du -h --max-depth=1 /usr | sort -h
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
