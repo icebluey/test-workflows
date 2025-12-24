@@ -71,7 +71,9 @@ jobs:
           sudo systemctl status -l chrony
 
       - name: list packages
-        run: sudo dpkg -l | grep -iE 'docker|container|podman|runc|crun|moby'
+        run: |
+          sudo dpkg -l | grep -iE 'docker|container|podman|runc|crun|moby'
+          sudo dpkg -l | grep -iE 'google|chrome|firefox|libmono|microsoft|mysql|postgresql'
       
 
       # Runs a set of commands using the runners shell
