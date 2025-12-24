@@ -75,13 +75,13 @@ jobs:
           sudo dpkg -l | grep -iE 'docker|container|podman|runc|crun|moby'
           sudo dpkg -l | grep -iE 'google|chrome|firefox|libmono|microsoft|mysql|postgresql|snap'
 
-      - run: df -h
+      - run: sudo df -h
 
       - name: purge
         run: sudo apt autoremove --purge -y '^docker.*' '^container.*' crun runc '^podman.*' firefox google-chrome-stable '^libmono-.*' '^mono-.*' '^mysql-.*' '^postgresql-.*' '^php.*'
       
-      - run: df -h
-      - run: du -h --max-depth=1 / | sort -h
+      - run: sudo df -h
+      - run: sudo du -h --max-depth=1 / | sort -h
 
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
