@@ -42,7 +42,8 @@ jobs:
           echo "PATH="$HOME/.cargo/bin:$PATH"" >> $GITHUB_ENV
           cat $GITHUB_ENV
 
-
+      - run: |
+          sudo apt autoremove --purge -y --allow-remove-essential $(dpkg -l | grep -i -E 'firefox|firebird|google-chrome-stable' | awk '{print $2}' | sort -V | uniq | paste -sd" ")
       - run: mkdir -p 1/2/3/4/5/6
 
       - run: cd 1/2/3/4/5 ; pwd
@@ -81,7 +82,7 @@ jobs:
         run: sudo apt autoremove --purge -y '^docker.*' '^container.*' crun runc '^podman.*' firefox google-chrome-stable '^libmono-.*' '^mono-.*' '^mysql-.*' '^postgresql-.*' '^php.*'
       
       - run: sudo df -h
-      - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
+      # - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
       - run: sudo du -h --max-depth=1 /usr | sort -h
       - run: sudo du -h --max-depth=1 /usr/local | sort -h
       - run: sudo du -h --max-depth=1 /usr/lib | sort -h
