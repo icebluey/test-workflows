@@ -45,6 +45,9 @@ jobs:
       - run: |
           sudo apt update -y -qqq
           sudo apt autoremove --purge -y needrestart || : 
+          sudo systemctl status -l postgresql.service
+          sudo systemctl status -l mysql
+          sudo systemctl status -l mysqld
           sudo apt autoremove --purge -y '^php.*'
           sudo apt autoremove --purge -y --allow-remove-essential $(dpkg -l | grep -i -E 'firefox|firebird|google-chrome-stable' | awk '{print $2}' | sort -V | uniq | paste -sd" ")
       - run: mkdir -p 1/2/3/4/5/6
