@@ -58,35 +58,14 @@ jobs:
       - name: test working-directory
         working-directory: 1/2/3/4
         run: pwd ; ls -la
-      - name: chronyd
-        run: |
-          sudo apt list | grep -i chrony
-          #sudo find /etc/ -type f | grep -i chrony
-          echo
-          cat /etc/chrony/chrony.conf
-          echo
-          sudo systemctl status -l chrony
-          sudo systemctl stop chrony
-          sudo sed 's|^refclock.*|#&|g' -i /etc/chrony/chrony.conf
-          sudo sed '1i \server time.cloudflare.com iburst minpoll 4 maxpoll 5 nts' -i /etc/chrony/chrony.conf
-          sudo sed '2i \server time.google.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
-          sudo sed '3i \server time.apple.com iburst minpoll 4 maxpoll 5' -i /etc/chrony/chrony.conf
-          cat /etc/chrony/chrony.conf
-          sudo systemctl start chrony
-          sleep 10; sudo chronyc sources; sleep 2; chronyc tracking; sudo chronyc makestep
-          sudo systemctl status -l chrony
 
-      - name: list packages
-        run: |
-          sudo dpkg -l | grep -i 'node'
 
-      - run: sudo df -h
 
 
       
-      - run: sudo df -h
-        # - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
-      - run: sudo du -h --max-depth=1 /usr | sort -h
-      - run: sudo du -h --max-depth=1 /usr/local | sort -h
-      - run: sudo du -h --max-depth=1 /usr/lib | sort -h
-      - run: sudo systemctl list-unit-files
+      #- run: sudo df -h
+      # - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
+      #- run: sudo du -h --max-depth=1 /usr | sort -h
+      #- run: sudo du -h --max-depth=1 /usr/local | sort -h
+      #- run: sudo du -h --max-depth=1 /usr/lib | sort -h
+      #- run: sudo systemctl list-unit-files
