@@ -47,10 +47,10 @@ jobs:
           sudo apt autoremove --purge -y needrestart || true
           sudo apt install -y bash wget curl openssl
           sudo ln -svf bash /bin/sh
-          sudo dpkg -L google-cloud-cli-anthoscli
-          sudo dpkg -L google-cloud-cli
-          #sudo wget https://raw.githubusercontent.com/icebluey/docker/refs/heads/master/scripts/clean-os.sh -O /tmp/clean-os.sh
-          #sudo bash /tmp/clean-os.sh
+          #sudo dpkg -L google-cloud-cli-anthoscli
+          #sudo dpkg -L google-cloud-cli
+          sudo wget https://raw.githubusercontent.com/icebluey/docker/refs/heads/master/scripts/clean-os.sh -O /tmp/clean-os.sh
+          sudo bash /tmp/clean-os.sh
       - run: mkdir -p 1/2/3/4/5/6
 
       - run: cd 1/2/3/4/5 ; pwd
