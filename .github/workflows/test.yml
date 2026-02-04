@@ -49,14 +49,16 @@ jobs:
           sudo ln -svf bash /bin/sh
           #sudo dpkg -L google-cloud-cli-anthoscli
           #sudo dpkg -L google-cloud-cli
-          sudo wget https://raw.githubusercontent.com/icebluey/docker/refs/heads/master/scripts/clean-os.sh -O /tmp/clean-os.sh
-          sudo bash /tmp/clean-os.sh
-          sudo find / -iname 'node'
-          sudo find / -iname 'npm'
+          #sudo wget https://raw.githubusercontent.com/icebluey/docker/refs/heads/master/scripts/clean-os.sh -O /tmp/clean-os.sh
+          #sudo bash /tmp/clean-os.sh
+          #sudo find / -iname 'node'
+          #sudo find / -iname 'npm'
           sudo du -sh /opt/hostedtoolcache/
           sudo dpkg -S /usr/local/bin/node || true
           sudo /usr/local/bin/node -p process.versions
           sudo /bin/ls -lah /opt/hostedtoolcache/
+          sudo rm -fr /opt/hostedtoolcache/
+          sudo /bin/ls -lah /usr/local/bin/
       - run: mkdir -p 1/2/3/4/5/6
 
       - run: cd 1/2/3/4/5 ; pwd
