@@ -58,7 +58,10 @@ jobs:
           sudo /usr/local/bin/node -p process.versions
           sudo /bin/ls -lah /opt/hostedtoolcache/
           sudo rm -fr /opt/hostedtoolcache/
+          sudo /bin/ls -lah /usr/local/lib/
+          sudo /bin/ls -lah /usr/local/lib/node_modules/
           sudo /bin/ls -lah /usr/local/bin/
+          
       - run: mkdir -p 1/2/3/4/5/6
 
       - run: cd 1/2/3/4/5 ; pwd
