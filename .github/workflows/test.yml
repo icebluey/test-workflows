@@ -53,6 +53,9 @@ jobs:
           sudo bash /tmp/clean-os.sh
           sudo find / -iname 'node'
           sudo find / -iname 'npm'
+          sudo du -sh /opt/hostedtoolcache/
+          sudo dpkg -S /usr/local/bin/node || true
+          sudo /usr/local/bin/node -p process.versions
       - run: mkdir -p 1/2/3/4/5/6
 
       - run: cd 1/2/3/4/5 ; pwd
