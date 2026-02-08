@@ -65,10 +65,6 @@ jobs:
           sudo apt install -y make gcc g++ m4 pkg-config perl libperl-dev groff-base dpkg-dev cmake
           sudo apt install -y autoconf autoconf-archive autogen automake autopoint autotools-dev libtool m4 bison flex
           sudo apt install -y llvm-dev libclang-dev
-          sudo git clone https://github.com/mcmilk/7-Zip-zstd.git
-          cd 7-Zip-zstd/CPP/ && sudo CC="clang" CXX="clang++" OUTDIR="$PWD/build-clang" ./build-lx.sh
-          sudo ls -lah
-          #cd _o/ && pwd && sudo /bin/ls -lah
 
       - name: build
         run: |
