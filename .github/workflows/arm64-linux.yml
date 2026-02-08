@@ -76,6 +76,7 @@ jobs:
         run: |
           sudo docker info || true
           sudo systemctl status -l docker || true
+          sudo docker images
 
 
       #- run: sudo df -h
