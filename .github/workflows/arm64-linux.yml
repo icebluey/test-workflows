@@ -75,6 +75,12 @@ jobs:
           sudo file *
           sudo ldd *
 
+      - name: docker
+        run: |
+          sudo docker info || true
+          sudo systemctl status -l docker || true
+
+
       #- run: sudo df -h
       # - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
       #- run: sudo du -h --max-depth=1 /usr | sort -h
