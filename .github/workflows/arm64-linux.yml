@@ -62,7 +62,7 @@ jobs:
       - run: |
           sudo apt update -y
           sudo apt install -y wget curl openssl bash
-          sudo apt install -y apt install -y make gcc g++ m4 pkg-config perl libperl-dev groff-base dpkg-dev cmake
+          sudo apt install -y make gcc g++ m4 pkg-config perl libperl-dev groff-base dpkg-dev cmake
           sudo apt install -y autoconf autoconf-archive autogen automake autopoint autotools-dev libtool m4 bison flex
           sudo apt install -y llvm-dev libclang-dev
 
