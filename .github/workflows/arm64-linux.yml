@@ -69,11 +69,8 @@ jobs:
       - name: build
         run: |
           sudo git clone https://github.com/mcmilk/7-Zip-zstd.git
-          cd 7-Zip-zstd/CPP/ && sudo CC="clang" CXX="clang++" OUTDIR="$PWD/build-clang" ./build-lx.sh
-          sudo ls -lah
-          cd build-clang/ && sudo /bin/ls -lah && pwd
-          sudo file *
-          sudo ldd *
+          #cd 7-Zip-zstd/CPP/ && sudo CC="clang" CXX="clang++" OUTDIR="$PWD/build-clang" ./build-lx.sh
+
 
       - name: docker
         run: |
