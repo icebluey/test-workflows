@@ -64,7 +64,7 @@ jobs:
           sudo apt install -y wget curl openssl bash
           sudo apt install -y make gcc g++ m4 pkg-config perl libperl-dev groff-base dpkg-dev cmake
           sudo apt install -y autoconf autoconf-archive autogen automake autopoint autotools-dev libtool m4 bison flex
-          sudo apt install -y llvm-dev libclang-dev
+          sudo apt install -y llvm-dev libclang-dev libc-bin file
 
       - name: build
         run: |
@@ -72,7 +72,8 @@ jobs:
           cd 7-Zip-zstd/CPP/ && sudo CC="clang" CXX="clang++" OUTDIR="$PWD/build-clang" ./build-lx.sh
           sudo ls -lah
           cd build-clang/ && sudo /bin/ls -lah && pwd
-          cd _o/ && pwd && sudo /bin/ls -lah
+          sudo file *
+          sudo ldd *
 
       #- run: sudo df -h
       # - run: sudo du -h --max-depth=1 --exclude={/proc,/sys,/dev,/run} / | sort -h
